@@ -55,8 +55,9 @@ export function ContactMe() {
                 alignItems: "center",
               }}
             >
-              <h1 style={{ color: "pink" }}>"Let's Connect! Drop a Line."</h1>
 
+              <div className="email-bar">
+              <h1 style={{ color: "pink" }}>"Let's Connect! Drop a Line."</h1>
               <Field
                 as={TextField}
                 sx={{ width: "30rem" }}
@@ -110,6 +111,7 @@ export function ContactMe() {
               >
                 Send
               </Button>
+              </div>
             </Box>
           </Form>
         )}

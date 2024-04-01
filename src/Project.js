@@ -41,13 +41,14 @@ export function Project({
   handlebackend,
   handlefrontend,
   deployedhandlefrontend,
+  textShadow
 }) {
   return (
     <div className="projects">
-      <h2>Projects</h2>
-      <div className="cards-project">
+      <h2 style={{textShadow:textShadow,fontSize:"2rem"}}>Projects</h2>
+      <div>
         {users.map((user) => (
-          <div key={user.id}>
+          <div className="projects-cards" key={user.id}>
             <Card sx={{ minWidth: 275 }}>
               <CardContent>
                 <Typography
@@ -63,6 +64,7 @@ export function Project({
               </CardContent>
               <CardActions>
                 <Button
+                className="Button"
                   color="secondary"
                   onClick={() => handlebackend(user.backendurl)}
                   size="small"
@@ -71,6 +73,7 @@ export function Project({
                   Source Backend
                 </Button>
                 <Button
+                className="Button"
                   color="secondary"
                   onClick={() => handlefrontend(user.sourcefrontend)}
                   size="small"
@@ -78,6 +81,7 @@ export function Project({
                   Source Frontend
                 </Button>
                 <Button
+                className="Button"
                   color="secondary"
                   onClick={() =>
                     deployedhandlefrontend(user.deployedfrontendurl)

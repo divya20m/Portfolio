@@ -29,8 +29,8 @@ function App() {
       mode: mode,
     },
   });
+  const texColors=mode==='dark'?"pink":"coral"
   const backgroundColor = mode === "dark" ? "rgb(44, 40, 40)" : "white";
-  const textColor = mode === "dark" ? "#ffffff" : "#444444";
   const label = { inputProps: { "aria-label": "Size switch demo" } };
 
   const handlebackend = (url) => {
@@ -48,13 +48,15 @@ function App() {
   };
 
   
+   const boxShadow= mode === 'light' ? '0 0 20px rgba(0, 0, 0, 0.2)' : '0 0 10px rgba(255, 255, 255, 0.5)';
+   const textShadow = mode === 'light' ? '1px 1px 2px rgba(0, 0, 0, 0.1)' : '1px 1px 2px rgba(255, 255, 255, 0.4)';  
   return (
     <ThemeProvider theme={Theme}>
       <div
         className="App"
-        style={{ backgroundColor: backgroundColor, color: textColor }}
+         style={{ backgroundColor: backgroundColor, color:texColors}}
       >
-        <div className="navigation">
+        <div style={{boxShadow:boxShadow}} className="navigation" >
           <Button
             color="secondary"
             style={{ gap: "10px" }}
@@ -65,7 +67,7 @@ function App() {
           </Button>
           <Button
             color="secondary"
-            style={{ gap: "20px" }}
+            style={{ gap: "5px" }}
             onClick={() => Navigate("/portfolio/skill")}
           >
             <StreamIcon />
@@ -73,7 +75,7 @@ function App() {
           </Button>
           <Button
             color="secondary"
-            style={{ gap: "10px" }}
+            style={{ gap: "5px" }}
             onClick={() => Navigate("/portfolio/projects")}
           >
             <EngineeringIcon />
@@ -81,14 +83,13 @@ function App() {
           </Button>
           <Button
             color="secondary"
-            style={{ gap: "10px" }}
+            style={{ gap: "5px" }}
             onClick={() => Navigate("/portfolio/achievement ")}
           >
             <StarsIcon />
             Others{" "}
           </Button>
           <Button
-            style={{ marginTop: "500px", gap: "10px" }}
             color="secondary"
             onClick={() => Navigate("/portfolio/contactdetails")}
           >
@@ -96,8 +97,7 @@ function App() {
             <PhoneIcon />
             Contact Me{" "}
           </Button>
-        </div>
-        <div className="switch">
+          <div className="switch">
           <FormControlLabel
             control={
               <Switch
@@ -112,6 +112,7 @@ function App() {
             labelPlacement="start"
           />
         </div>
+        </div>
         <Routes>
           <Route
             path="/"
@@ -119,6 +120,8 @@ function App() {
               <MyPort
                 handlefrontend={handlefrontend}
                 deployedhandlefrontend={deployedhandlefrontend}
+                boxShadow={boxShadow}
+                textShadow={textShadow}
               />
             }
           />
@@ -130,11 +133,13 @@ function App() {
                 handlebackend={handlebackend}
                 handlefrontend={handlefrontend}
                 deployedhandlefrontend={deployedhandlefrontend}
+               
+                textShadow={textShadow}
               />
             }
           />
-          <Route path="/portfolio/achievement" element={<Achievements />} />
-          <Route path="/portfolio/contactdetails" element={<ContactMe />} />
+          <Route path="/portfolio/achievement" element={<Achievements  textShadow={textShadow} />} />
+          <Route path="/portfolio/contactdetails" element={<ContactMe  textShadow={textShadow}/>} />
         </Routes>
       </div>
     </ThemeProvider>

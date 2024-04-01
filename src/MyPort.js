@@ -14,7 +14,7 @@ import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfi
 import { users } from './Project';
 import imageSrc from './Image/image.jpg'
 
-export function MyPort({handlefrontend,deployedhandlefrontend }) {
+export function MyPort({handlefrontend,deployedhandlefrontend,textShadow}) {
   const [githubClicked, setGithubClicked] = useState(false);
   const [resume, setResume] = useState(false);
   const DemoPaper = styled(Paper)(({ theme }) => ({
@@ -26,7 +26,15 @@ export function MyPort({handlefrontend,deployedhandlefrontend }) {
     fontSize: '1.5rem',
     color:'purple',
     display: 'flex',         
-    alignItems: 'center'
+    alignItems: 'center',
+    cursor:'pointer',
+    boxShadow: '0 0 20px rgba(0, 0, 0, 0.8)',
+    border: "2px solid pink",
+    '&:hover': {
+      boxShadow: '0 0 30px rgba(0, 0, 0, 0.8)',
+      backgroundColor: '#FFE4E1',
+      color: 'coral',
+    }
   }));
   const navigate=useNavigate()
    const handleGithubClick = () => {
@@ -44,7 +52,7 @@ export function MyPort({handlefrontend,deployedhandlefrontend }) {
         
         <div className='my-img'><img src={imageSrc} alt='DivyaM' className="image"/></div>
         
-        <div className='my-info'><p>I'm M Divya, a Physics graduate from St. Xavier's College. While
+        <div className='my-info'><p>I'm <span className="name-highlight"> M Divya</span>, a Physics graduate from St. Xavier's College. While
               studying, I stumbled upon the captivating world of coding,
               sparking a profound interest that continues to drive my learning
               journey today. Beyond the complexities of code, I'm captivated by
@@ -61,23 +69,23 @@ export function MyPort({handlefrontend,deployedhandlefrontend }) {
 
 
       <div className='sub-skills'>
-            <h2>My Skills</h2>
+            <h2 style={{textShadow:textShadow}}>My Skills</h2>
            <div className='paper'>
-           <Stack direction="row" spacing={2}>
+           <Stack direction="row"  spacing={3.5}>
            <DemoPaper variant="outlined">JavaScript</DemoPaper>
       <DemoPaper variant="outlined">Node.js</DemoPaper>
       <DemoPaper variant="outlined">SQL</DemoPaper>
       <DemoPaper variant="outlined">MongoDB</DemoPaper>
-      <ReadMoreIcon style={{cursor:"pointer"}} onClick={()=>navigate("/portfolio/skill")}/>
+      <ReadMoreIcon className='icon' onClick={()=>navigate("/portfolio/skill")}/>
     </Stack>
            </div>
           </div>
 
           <div className='sub-projects'>
-      <h2>Projects</h2>
-      <div className='cards'>
+      <h2 style={{textShadow:textShadow}}>Projects</h2>
+      <div  className='cards'>
       {users.slice(0, 2).map(user => (
-        <div key={user.id}>
+        <div className='one-card' key={user.id}>
         <Card sx={{ minWidth: 275 }}>
           <CardContent>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
@@ -94,7 +102,7 @@ export function MyPort({handlefrontend,deployedhandlefrontend }) {
         </Card>
       </div>
       ))}
-       <ReadMoreIcon style={{cursor:"pointer"}} onClick={()=>navigate("/portfolio/projects")}/>
+       <ReadMoreIcon className='icon' onClick={()=>navigate("/portfolio/projects")}/>
       </div>
     </div>
     </div>
