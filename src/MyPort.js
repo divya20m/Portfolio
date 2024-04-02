@@ -43,7 +43,7 @@ export function MyPort({handlefrontend,deployedhandlefrontend,textShadow}) {
   };
   const handleResume = () => {
     setResume(true);
-    window.open('https://drive.google.com/file/d/1l0KlSu8noQonVKktctDvzHGODQ6DI2hb/view?usp=sharing', '_self');
+    window.open('https://drive.google.com/file/d/1vmJJ6HtDpVBQvEgRxv_TViMJ5F2mLZRs/view?usp=drive_link', '_self');
   };
   return (
     <div className='My-Port' >
