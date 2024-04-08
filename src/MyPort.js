@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import { useState } from 'react';
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
 import { users } from './Project';
-import imageSrc from './Image/image.jpg'
+import imageSrc from './Image/image.png'
 
 export function MyPort({handlefrontend,deployedhandlefrontend,textShadow}) {
   const [githubClicked, setGithubClicked] = useState(false);
@@ -43,7 +43,7 @@ export function MyPort({handlefrontend,deployedhandlefrontend,textShadow}) {
   };
   const handleResume = () => {
     setResume(true);
-    window.open('https://drive.google.com/file/d/1vmJJ6HtDpVBQvEgRxv_TViMJ5F2mLZRs/view?usp=drive_link', '_self');
+    window.open('https://drive.google.com/file/d/1HcMzxi5vFF-HbSEBQJ0wVxwBrUPpJGPE/view?usp=drive_link', '_self');
   };
   return (
     <div className='My-Port' >
