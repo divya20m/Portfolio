@@ -147,7 +147,15 @@ justify-content: center;
    transition: .5s all;
    display: flex;
    align-items: center;
- 
+ .card-image{
+  height: 170px;
+    width: auto;
+    object-fit: cover;
+ }
+ h2{
+  display: flex;
+  justify-content: center;
+ }
    .card-contents{
      display: flex;
      flex-direction: column;
@@ -173,12 +181,6 @@ justify-content: center;
        display: flex;
        justify-content: space-between;
        align-items: center;
-       .duration{
-         display: flex;
-         align-items: center;
-         color: #a89ec9;
-         margin-right: .2rem;
-       }
      }
    }
     &:hover{
