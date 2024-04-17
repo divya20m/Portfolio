@@ -149,7 +149,7 @@ justify-content: center;
    align-items: center;
  .card-image{
   height: 170px;
-    width: auto;
+    width: 310px;
     object-fit: cover;
  }
  h2{
@@ -305,6 +305,7 @@ width: 30%;
     grid-template-columns: repeat(2, 2fr);
     gap: 20px;
     justify-content: center;
+    margin: 1rem;
   }
   .email-bar{
     width: 100%;
