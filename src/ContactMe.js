@@ -40,6 +40,9 @@ export function ContactMe() {
 
   return (
     <div className="contact-me">
+      <div className="heading">
+  <h1 className="heading-title">Let's Connect!</h1>
+</div>
       <Formik
         initialValues={{ user_name: "", user_email: "", message: "" }}
         validationSchema={validationSchema}
@@ -57,10 +60,10 @@ export function ContactMe() {
             >
 
               <div className="email-bar">
-              <h1 style={{ color: "pink" }}>"Let's Connect! Drop a Line."</h1>
+              <h1 style={{ color: "pink",fontFamily:"robot" }}>Drop a Line</h1>
               <Field
                 as={TextField}
-                sx={{ width: "30rem" }}
+                sx={{ width: "100%" }}
                 color="secondary"
                 id="user_name"
                 name="user_name"

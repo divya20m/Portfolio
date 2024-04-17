@@ -1,17 +1,18 @@
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-
+import login from './Image/login.png';
+import d3 from './Image/d3.js.png';
+import todo from './Image/todo.png';
+import dresses from './Image/dresses.png';
 
 export const users = [
   {
     id: 1,
-    name: "Redux.js",
-    deployedfrontendurl: "https://redux-one-gray.vercel.app/",
-    backendurl: "https://64fdf829596493f7af7ecfd2.mockapi.io/Products",
-    sourcefrontend: "https://github.com/divya20m/redux",
+    name: "Todo",
+    deployedfrontendurl: "https://crud-frontend-red.vercel.app/AllLists",
+    backendurl: "",
+    sourcefrontend: "https://github.com/divya20m/todo",
+    image:todo,
+    description:"A simple Todo webpage using React.js."
   },
   {
     id: 2,
@@ -19,20 +20,26 @@ export const users = [
     deployedfrontendurl: "https://black-coffer-frontend-green.vercel.app/",
     backendurl: "https://github.com/divya20m/Black-Coffer-Backend",
     sourcefrontend: "https://github.com/divya20m/BlackCoffer-Frontend",
+    image:d3,
+    description:"A simple Project using d3.js."
   },
   {
     id: 3,
+    name: "Shopping Application",
+    deployedfrontendurl: "https://my-dresses-frontend-ptfn.vercel.app/",
+    backendurl: "https://github.com/divya20m/my-dresses-backend",
+    sourcefrontend: "https://github.com/divya20m/my-dresses-frontend",
+    image:dresses,
+    description:"An E-Commerce Application using React.js Node.js and MonogoDB." 
+  },
+  {
+    id: 4,
     name: "PassWord Reset",
     deployedfrontendurl: "https://password-reset-frontend-eosin.vercel.app/",
     backendurl: "https://github.com/divya20m/password-reset-backend",
     sourcefrontend: "https://github.com/divya20m/password--reset--frontend",
-  },
-  {
-    id: 4,
-    name: "Shopping Application",
-    deployedfrontendurl: "https://todo-sable-three.vercel.app/",
-    backendurl: "https://github.com/divya20m/my-dresses-backend",
-    sourcefrontend: "https://github.com/divya20m/my-dresses-frontend",
+    image:login,
+    description:"Authentication and Authorisation."
   },
 ];
 
@@ -41,32 +48,25 @@ export function Project({
   handlebackend,
   handlefrontend,
   deployedhandlefrontend,
-  textShadow
 }) {
   return (
-    <div className="projects">
-      <h2 style={{textShadow:textShadow,fontSize:"2rem"}}>Projects</h2>
-      <div>
-        {users.map((user) => (
-          <div className="projects-cards" key={user.id}>
-            <Card sx={{ minWidth: 275 }}>
-              <CardContent>
-                <Typography
-                  sx={{ fontSize: 14 }}
-                  color="text.secondary"
-                  gutterBottom
-                >
-                  {user.name}
-                </Typography>
-                <Typography variant="h5" component="div">
-                  {user.URL}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button
+   
+    <div className="project-sec" >
+      <div className="heading">
+  <h1 className="heading-title">My Projects</h1>
+</div>
+    <div className="card-arrangements">
+    {users.map((users) => (
+    <div className="cards">
+    <div className='card-contents'>
+      <img className='card-image' src={users.image} alt={users.name} />
+      <h2>{users.name}</h2>
+      <p className='card-description'>{users.description}</p>
+      <div className='card-info'>
+      <Button
                 className="Button"
                   color="secondary"
-                  onClick={() => handlebackend(user.backendurl)}
+                  onClick={() => handlebackend(users.backendurl)}
                   size="small"
                 >
                   {" "}
@@ -75,7 +75,7 @@ export function Project({
                 <Button
                 className="Button"
                   color="secondary"
-                  onClick={() => handlefrontend(user.sourcefrontend)}
+                  onClick={() => handlefrontend(users.sourcefrontend)}
                   size="small"
                 >
                   Source Frontend
@@ -84,17 +84,18 @@ export function Project({
                 className="Button"
                   color="secondary"
                   onClick={() =>
-                    deployedhandlefrontend(user.deployedfrontendurl)
+                    deployedhandlefrontend(users.deployedfrontendurl)
                   }
                   size="small"
                 >
                   Deployed Frontend
                 </Button>
-              </CardActions>
-            </Card>
-          </div>
-        ))}
+        </div>
       </div>
+      <hr />
     </div>
+     ))}
+    </div>
+     </div>
   );
 }

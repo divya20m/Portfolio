@@ -1,7 +1,7 @@
-import {Grid, Paper} from "@mui/material";
+import {Paper} from "@mui/material";
 import { styled } from '@mui/material/styles';
 
-export function Skill({textShadow}) {
+export function Skill() {
   const skills = [
     "JavaScript",
     "Node.js",
@@ -16,7 +16,7 @@ export function Skill({textShadow}) {
 
   const DemoPaper = styled(Paper)(({ theme }) => ({
     width: 'auto',
-    height: '80px',
+    minHeight: '50px',
     padding: theme.spacing(4),
     ...theme.typography.body2,
     textAlign: 'center',
@@ -35,15 +35,13 @@ export function Skill({textShadow}) {
   }));
   return (
     <div className='skills'>
-      <h2 style={{textShadow:textShadow,fontSize:"2rem"}}>My Skills</h2>
+      <div className="heading">
+  <h1 className="heading-title">My Skills</h1>
+</div>
       <div className='skills-paper'>
-      <Grid container spacing={4}>
         {skills.map((skill, index) => (
-          <Grid item xs={4} key={index}> 
             <DemoPaper variant="outlined">{skill}</DemoPaper>
-          </Grid>
         ))}
-      </Grid>
       </div>
     </div>
   );
