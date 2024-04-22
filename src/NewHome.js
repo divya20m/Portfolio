@@ -17,13 +17,13 @@ export function NewHome({
   const [resume, setResume] = useState(false);
   const handleGithubClick = () => {
     setGithubClicked(true);
-    window.open("https://github.com/divya20m", "_self");
+    window.open("https://github.com/divya20m", "_blank");
   };
   const handleResume = () => {
     setResume(true);
     window.open(
-      "https://drive.google.com/file/d/1HcMzxi5vFF-HbSEBQJ0wVxwBrUPpJGPE/view?usp=drive_link",
-      "_self"
+      "https://drive.google.com/file/d/1Km7qDAOkwhjbA_14D-tdjTkPXlxqv_VM/view?usp=sharing",
+      "_blank"
     );
   };
   return (
@@ -45,14 +45,14 @@ export function NewHome({
           </p>
           <div style={{ display: "flex", flexDirection: "row", gap: "20px" }}>
             <div onClick={handleGithubClick} className="icon">
-              <a href="https://github.com/divya20m" target="_self">
+              <a href="https://github.com/divya20m" target="_blank">
                 <GitHubIcon style={{ fontSize: 29 }} />
               </a>
               GitHub
             </div>
             <div onClick={handleResume} className="icon">
-              <a href="https://github.com/divya20m" target="_self">
-                <SentimentVerySatisfiedIcon style={{ fontSize: 29 }} />
+              <a href="https://drive.google.com/file/d/1Km7qDAOkwhjbA_14D-tdjTkPXlxqv_VM/view?usp=sharing" target="_blank">
+                <SentimentVerySatisfiedIcon onClick={handleResume} style={{ fontSize: 29 }} />
               </a>
               Resume
             </div>
